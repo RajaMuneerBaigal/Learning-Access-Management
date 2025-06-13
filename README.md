@@ -267,4 +267,81 @@ Clients need to authenticate against the authorization server, and there are dif
     * using jwk
     * or uploading the content of cert in option `mtls self signed cert`
 
+----------------------------------------------------
+---
+# Transforming OAuth2 Tokens
+
+* **Security tokens** contain information related to security and identity.
+* ForgeRock AM comes with **OAuth2 Token Exchange**, which is responsible for issuing tokens. AM, when configured as an authorization server, is responsible for exchanging different types of tokens:
+    * Access tokens for new access tokens
+    * Access tokens for ID tokens
+    * ID tokens for new ID tokens
+    * ID tokens for access tokens
+
+The reason for exchanging these tokens lies in the scope. For example, when an authenticated client requested an ID token and now wants to perform some operation on a resource, the client can exchange that ID token for a new access token as the scope of the work has changed.
+
+---
+
+## Types of Exchanged Tokens
+
+* **Subject Token**: Represents the identity for whom the request is made. E.g., Raju.
+* **Exchanged Token**: The new token that is the result of token exchange.
+* **Actor Token**: Represents the identity of the acting party. E.g., a Bot acting on behalf of Raju.
+
+**Scenario Example:**
+
+Alice (user) → gives her token (subject token) → asks for access to a new system.
+The auth server → verifies and issues a new token (exchange token).
+If needed, it can also say "This request is being made by a system or service on behalf of Alice" (actor token).
+
+---
+
+## Reason for Token Exchange
+
+A client may want to exchange tokens for:
+
+* **Impersonation**
+    * Used by a client to act as a subject on another client.
+    * Has a subject token.
+* **Delegation**
+    * Used by a subject to act on behalf of another subject.
+    * Has a subject and actor token. The actor identity is stored in the `'act'` claim.
+
+---
+
+## Token Exchange with AM
+
+* Copies claims and values that must stay the same, from the subject token into the new token.
+* Derives scopes from the scope implementation used in OAuth2/OIDC grant types flows.
+* Adds the `act` and `may_act` claims.
+
+---
+
+## Token Scopes and Claims
+
+When requesting a token, a client can indicate on which desired target services it intends to use that token by using the `"audience"` and `"resource"` parameters and the desired scope of the requested token using the `"scope"` parameter.
+
+### `may_act` Claim
+
+The `may_act` claim is a part of the subject token that specifies:
+
+* Who may act on behalf of the client.
+* Acts as a condition for the authorization server issuing exchange tokens where:
+    * The client making the exchange must be authorized in the claim.
+    * The subject of the actor token must also be authorized in the claim of the subject token (delegation).
+
+### `act` Claim
+
+The `act` claim is part of the exchanged token:
+
+* Identifies the party acting on behalf of the token's subject.
+* Expresses that delegation has occurred.
+
+---
+
+## Token Restriction and Expansion
+
+* Exchanged token scopes and claims do not necessarily need to be the ones in the original subject tokens.
+* Exchanged token scopes and claims can be expanded or restricted.
+
 ---
