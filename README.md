@@ -382,6 +382,8 @@ These define how SAML requests and responses are exchanged:
     * Sent by the IdP to the SP containing the user’s authentication status and attributes.
 * **SAML Single Logout (SLO)**
     * Allows a user to log out from all connected services at once.
+      ![image](https://github.com/user-attachments/assets/81c078ee-d921-41d2-8626-6b72b9707162)
+
 
 ### 5. SAML Bindings
 
