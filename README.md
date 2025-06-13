@@ -362,15 +362,15 @@ SAML assertions are XML documents that carry authentication, authorization, and 
 * **Attribute Assertion**: Provides user attributes (e.g., email, role, department).
 * **Authorization Decision Assertion**: Specifies whether the user is allowed/denied access to a resource.
 
-### 2. SAML Protocols
+### 2. SAML Protocol Objects
 
 These define how SAML requests and responses are exchanged:
 
-* **SAML Authentication Request Protocol (AuthnRequest)**
+* **SAML Authentication Request  (AuthnRequest)**
     * Initiated by the Service Provider (SP) to request authentication from the Identity Provider (IdP).
-* **SAML Response Protocol**
+* **SAML Response**
     * Sent by the IdP to the SP containing the user’s authentication status and attributes.
-* **SAML Single Logout Protocol (SLO)**
+* **SAML Single Logout (SLO)**
     * Allows a user to log out from all connected services at once.
 
 ### 3. SAML Bindings
