@@ -345,3 +345,91 @@ The `act` claim is part of the exchanged token:
 * Exchanged token scopes and claims can be expanded or restricted.
 
 ---
+```markdown
+---
+# SAML
+
+SAML (Security Assertion Markup Language) is an XML-based open standard for exchanging authentication and authorization data between parties, particularly between an Identity Provider (IdP) and a Service Provider (SP). It enables Single Sign-On (SSO), allowing users to log in once and access multiple services without re-entering credentials.
+
+---
+
+## Key Components of SAML
+
+### 1. SAML Assertions
+
+SAML assertions are XML documents that carry authentication, authorization, and attribute information about a user. There are three types:
+
+* **Authentication Assertion**: Confirms that the user has been authenticated (e.g., via username/password, MFA).
+* **Attribute Assertion**: Provides user attributes (e.g., email, role, department).
+* **Authorization Decision Assertion**: Specifies whether the user is allowed/denied access to a resource.
+
+### 2. SAML Protocols
+
+These define how SAML requests and responses are exchanged:
+
+* **SAML Authentication Request Protocol (AuthnRequest)**
+    * Initiated by the Service Provider (SP) to request authentication from the Identity Provider (IdP).
+* **SAML Response Protocol**
+    * Sent by the IdP to the SP containing the user’s authentication status and attributes.
+* **SAML Single Logout Protocol (SLO)**
+    * Allows a user to log out from all connected services at once.
+
+### 3. SAML Bindings
+
+These define how SAML messages are transported between entities:
+
+* **HTTP Redirect Binding**
+    * SAML messages are sent via URL parameters (limited size).
+* **HTTP POST Binding**
+    * SAML messages are sent in an HTML form (used for larger assertions).
+* **SAML SOAP Binding**
+    * Uses SOAP (Simple Object Access Protocol) for web services.
+* **SAML Artifact Binding**
+    * Uses a reference (artifact) instead of sending the full SAML message.
+
+### 4. SAML Roles
+
+* **Identity Provider (IdP)**
+    * Authenticates users and issues SAML assertions (e.g., Okta, Azure AD, ADFS).
+* **Service Provider (SP)**
+    * Relies on the IdP for authentication (e.g., Salesforce, AWS, Gmail).
+* **Principal (User)**
+    * The entity trying to access a service.
+
+### 5. Metadata
+
+XML files exchanged between IdP and SP to establish trust.
+
+Contains:
+
+* Entity IDs
+* Certificate for signing/encryption
+* Endpoint URLs (SSO, SLO)
+
+---
+
+## How SAML Works (SSO Flow)
+
+1.  User tries to access a Service Provider (SP).
+2.  SP generates a SAML AuthnRequest and redirects the user to the IdP.
+3.  IdP authenticates the user (e.g., via password, MFA).
+4.  IdP sends back a SAML Response (assertion) to the SP.
+5.  SP validates the assertion and grants access.
+
+---
+
+## Advantages of SAML
+
+* ✔ **Single Sign-On (SSO)** – Users log in once for multiple services.
+* ✔ **Security** – Uses XML encryption and digital signatures.
+* ✔ **Standardized** – Widely adopted in enterprise environments.
+* ✔ **Federation** – Enables trust between different organizations (B2B).
+
+---
+
+## Use Cases
+
+* Enterprise SSO (e.g., accessing Office 365 via Azure AD)
+* Cloud application authentication (Salesforce, AWS)
+* Federated identity (B2B collaborations)
+```
