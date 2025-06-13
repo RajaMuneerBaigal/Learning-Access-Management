@@ -361,8 +361,18 @@ SAML assertions are XML documents that carry authentication, authorization, and 
 * **Authentication Assertion**: Confirms that the user has been authenticated (e.g., via username/password, MFA).
 * **Attribute Assertion**: Provides user attributes (e.g., email, role, department).
 * **Authorization Decision Assertion**: Specifies whether the user is allowed/denied access to a resource.
+### 2. Metadata
 
-### 2. SAML Protocol Objects
+XML files exchanged between IdP and SP to establish trust.
+
+Contains:
+
+* Entity IDs
+* Certificate for signing/encryption
+* Endpoint URLs (SSO, SLO)
+### 3. Circle of Trust
+* The entities that are part of the system and those have agreed to build a trust on 
+### 4. SAML Protocol Objects
 
 These define how SAML requests and responses are exchanged:
 
@@ -373,7 +383,7 @@ These define how SAML requests and responses are exchanged:
 * **SAML Single Logout (SLO)**
     * Allows a user to log out from all connected services at once.
 
-### 3. SAML Bindings
+### 5. SAML Bindings
 
 These define how SAML messages are transported between entities:
 
@@ -381,12 +391,15 @@ These define how SAML messages are transported between entities:
     * SAML messages are sent via URL parameters (limited size).
 * **HTTP POST Binding**
     * SAML messages are sent in an HTML form (used for larger assertions).
+    ![image](https://github.com/user-attachments/assets/11a7c044-dd09-4c41-bc7f-089d3aa586e3)
+
 * **SAML SOAP Binding**
     * Uses SOAP (Simple Object Access Protocol) for web services.
 * **SAML Artifact Binding**
     * Uses a reference (artifact) instead of sending the full SAML message.
+    ![image](https://github.com/user-attachments/assets/b9a56bbd-98bd-4e5e-b3f4-fa9329244dda)
 
-### 4. SAML Roles
+### 6. SAML Roles
 
 * **Identity Provider (IdP)**
     * Authenticates users and issues SAML assertions (e.g., Okta, Azure AD, ADFS).
@@ -395,15 +408,7 @@ These define how SAML messages are transported between entities:
 * **Principal (User)**
     * The entity trying to access a service.
 
-### 5. Metadata
-
-XML files exchanged between IdP and SP to establish trust.
-
-Contains:
-
-* Entity IDs
-* Certificate for signing/encryption
-* Endpoint URLs (SSO, SLO)
+### Federation 
 
 ---
 
