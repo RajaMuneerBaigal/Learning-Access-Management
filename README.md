@@ -344,9 +344,8 @@ The `act` claim is part of the exchanged token:
 * Exchanged token scopes and claims do not necessarily need to be the ones in the original subject tokens.
 * Exchanged token scopes and claims can be expanded or restricted.
 
----
-```markdown
----
+-----------------------------------------------
+
 # SAML
 
 SAML (Security Assertion Markup Language) is an XML-based open standard for exchanging authentication and authorization data between parties, particularly between an Identity Provider (IdP) and a Service Provider (SP). It enables Single Sign-On (SSO), allowing users to log in once and access multiple services without re-entering credentials.
@@ -432,4 +431,4 @@ Contains:
 * Enterprise SSO (e.g., accessing Office 365 via Azure AD)
 * Cloud application authentication (Salesforce, AWS)
 * Federated identity (B2B collaborations)
-```
+
