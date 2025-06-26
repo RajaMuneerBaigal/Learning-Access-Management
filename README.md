@@ -439,10 +439,12 @@ These define how SAML messages are transported between entities:
 * Cloud application authentication (Salesforce, AWS)
 * Federated identity (B2B collaborations)
 
-### Explain the SAML2 flow from the IdP point of view
+## Explain the SAML2 flow from the IdP point of view
 IDP Tasks during SAML2 SSO HTTP-POST profile:
 1. Monitoring the SSO service endpoint for any incoming Authentication Requests
 2. Validating the authentication request received from an SP
 3. Authenticating end user
 4. Creating an assertion
 5. Sending the response 
+
+- **Receive an Authentication Request**:
