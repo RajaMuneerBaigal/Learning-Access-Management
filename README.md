@@ -447,4 +447,4 @@ IDP Tasks during SAML2 SSO HTTP-POST profile:
 4. Creating an assertion
 5. Sending the response 
 
-- **Receive an Authentication Request**:
+1- **Receive an Authentication Request**:
