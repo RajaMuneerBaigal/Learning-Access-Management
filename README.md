@@ -450,4 +450,6 @@ IDP Tasks during SAML2 SSO HTTP-POST profile:
 ![image](https://github.com/user-attachments/assets/5dc809ca-7fe3-4919-980c-5e8d62051078)
 
 - **SSO Service endpoint Receives an Authentication Request**:
-    The IDP receives a SAML2 authentication request at its SSO service. The auth
+    The IDP receives a SAML2 authentication request at its SSO service. The auth request are of two types:
+     - SP initiated SSO:       SP redirects the end user to IDP endpoint with a SAML authentication request
+     - IDP initiated SSO:      user redirected to specialized link on the idp instance. PingAM uses idpssoinit.jsp
