@@ -445,7 +445,8 @@ IDP Tasks during SAML2 SSO HTTP-POST profile:
 2. Validating the authentication request received from an SP
 3. Authenticating end user
 4. Creating an assertion
-5. Sending the response 
+5. Sending the response
+   
 ![image](https://github.com/user-attachments/assets/5dc809ca-7fe3-4919-980c-5e8d62051078)
 
 - **SSO Service endpoint Receives an Authentication Request**:
