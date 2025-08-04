@@ -1,3 +1,17 @@
+**Enhancing Intelligent Authentication:**
+Bussiness either offer a service or resource. Bussiness is resposible for producing those services or resources but bussiness doesn't want to handle access control so they delegate access control to a access management solution like pingam or ibm security verify access or any other. An access management solutions control access to a service/resource through:
+1- **Authentication:** Verifies the identity of a user or a digital entity
+2- **Authorization:** Determines whether a specific user has sufficient privileges to access a protected resource
+
+**AM Authentication:**
+- AM uses authentication to verify  a user or an entity's identity
+- The result of successful authentication is an am session stored in an **SSOToken**.
+- The **SSOTOKENID** which is a refrence to the session is used to identify the user to all AM-enabled edge devices
+ 
+
+
+
+
 **OAuth2 Grant types:**  
 These are different ways to acquire access tokens for different clients as these access tokens are used by clients to perform some action on the resources. The acquiring of these tokens depend upon the relationship between the clients and the resource owner.
 
